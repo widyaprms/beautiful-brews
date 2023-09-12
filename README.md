@@ -1,7 +1,9 @@
 # BeautyBrews Co.
-`Arini Widya Pramesti`
-`2206830271`
-`PBP E`
+```text
+Arini Widya Pramesti
+2206830271
+PBP E
+```
 
 
 ## Tugas 2
@@ -28,18 +30,56 @@ requests
 urllib3
 ```
 Lalu, pasang *dependencies* tersebut dengan perintah ```pip install -r requirements.txt```.
-4. Membuat proyek Django dengan nama `beautiful_brews` dengan perintah ```django-admin startproject beautiful_brews .```
-5. Pergi ke berkas ```settings.py``` lalu tambahkan ```*``` pada ```ALLOWED_HOSTS```. Dengan menambahkan ```*```, berarti saya mengizinkan akses dari semua host.
-6. Memeriksa apakah Django sudah terinstall dengan perintah ```python manage.py runserver``` lalu membuka http://localhost:8000/. Apabila laman tersebut menampilkan gambar roket, maka proyek Django sudah berhasil.
-7. Menghentikan server dengan menekan ```CTRL + C``` dan menonaktifkan virtual environment dengan perintah ```deactivate.```
+
+4. Membuat proyek Django dengan nama `beautiful_brews` dengan perintah ```django-admin startproject
+beautiful_brews .```
+
+5. Pergi ke berkas ```settings.py``` lalu tambahkan ```*``` pada ```ALLOWED_HOSTS```. Dengan menambahkan
+```*```, berarti saya mengizinkan akses dari semua host.
+
+6. Memeriksa apakah Django sudah terinstall dengan perintah ```python manage.py runserver``` lalu
+membuka http://localhost:8000/. Apabila laman tersebut menampilkan gambar roket, maka proyek Django
+sudah berhasil.
+
+7. Menghentikan server dengan menekan ```CTRL + C``` dan menonaktifkan virtual environment dengan
+perintah ```deactivate.```
+
 
  - [x]  Membuat aplikasi dengan nama `main` pada proyek tersebut.
 
-a
+1. Membuat aplikasi baru dengan nama `main` dengan perintah `python manage.py startapp main`.
+2. Mendaftarkan aplikasi `main` ke dalam proyek dengan membuka berkas `settings.py` dan tambahkan
+`'main'` ke dalam variabel `INSTALLED_APPS`.
+```text
+INSTALLED_APPS = [
+    ...,
+    'main',
+    ...
+]
+```
 
  - [x] Melakukan *routing* pada proyek agar dapat menjalankan aplikasi `main`.
 
-a
+1. Mengonfigurasi *routing* URL aplikasi `main` dengan cara membuat berkas `urls.py` dan isi berkas
+tersebut dengan kode berikut.
+```text
+from django.urls import path
+from main.views import show_main
+
+app_name = 'main'
+
+urlpatterns = [
+    path('', show_main, name='show_main'),
+]
+```
+Berkas `urls.py` pada aplikasi `main` bertanggung jawab untuk mengatur rute URL yang terkait dengan aplikasi `main`.
+2. Mengonfigurasi *routing* URL proyek untuk menghubungkannya ke tampilan `main` dengan cara membuka
+berkas`urls.py` di dalam direktori `beautiful_brews`, lalu impor fungsi `include` dari `django.urls`
+dengan kode ```from django.urls import path, include```. Fungsi `include` digunakan untuk mengimpor rute
+URL dari aplikasi `main` ke dalam berkas `urls.py` proyek. Setelah itu, tambahkan rute URL seperti 
+berikut untuk mengarahkan ke tampilan `main` di dalam variabel `urlpatterns` dengan kode ```path('main/
+', include('main.urls')),```. Berkas `urls.py` pada proyek bertanggung jawab untuk mengatur rute URL 
+tingkat proyek.
 
  - [x] Membuat model pada aplikasi `main` dengan nama `Item` dan memiliki atribut wajib sebagai berikut.
     + `name` sebagai nama *item* dengan tipe `CharField`.
@@ -53,10 +93,6 @@ a
 a
 
  - [x] Membuat sebuah *routing* pada `urls.py` aplikasi `main` untuk memetakan fungsi yang telah dibuat pada `views.py`.
-
-a
-
- - [x] Melakukan *deployment* ke Adaptable terhadap aplikasi yang sudah dibuat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
 
 a
 
