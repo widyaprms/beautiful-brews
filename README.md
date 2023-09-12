@@ -73,28 +73,55 @@ urlpatterns = [
 ]
 ```
 Berkas `urls.py` pada aplikasi `main` bertanggung jawab untuk mengatur rute URL yang terkait dengan aplikasi `main`.
+
 2. Mengonfigurasi *routing* URL proyek untuk menghubungkannya ke tampilan `main` dengan cara membuka
-berkas`urls.py` di dalam direktori `beautiful_brews`, lalu impor fungsi `include` dari `django.urls`
-dengan kode ```from django.urls import path, include```. Fungsi `include` digunakan untuk mengimpor rute
-URL dari aplikasi `main` ke dalam berkas `urls.py` proyek. Setelah itu, tambahkan rute URL seperti 
-berikut untuk mengarahkan ke tampilan `main` di dalam variabel `urlpatterns` dengan kode ```path('main/
-', include('main.urls')),```. Berkas `urls.py` pada proyek bertanggung jawab untuk mengatur rute URL 
-tingkat proyek.
+   berkas`urls.py` di dalam direktori `beautiful_brews`, lalu impor fungsi `include` dari `django.urls`
+   dengan kode ```from django.urls import path, include```. Setelah itu, tambahkan rute URL
+   seperti berikut untuk mengarahkan ke tampilan `main` di dalam variabel `urlpatterns` dengan kode
+   ```path('main/', include('main.urls')),```. Berkas `urls.py` pada proyek bertanggung jawab untuk 
+   mengatur rute URL tingkat proyek.
 
  - [x] Membuat model pada aplikasi `main` dengan nama `Item` dan memiliki atribut wajib sebagai berikut.
     + `name` sebagai nama *item* dengan tipe `CharField`.
     + `amount` sebagai jumlah *item* dengan tipe `IntegerField`.
     + `description` sebagai deskripsi *item* dengan tipe `TextField`.
 
-a
+1. Membuka berkas `models.py` pada direktori aplikasi `main`.
+2. Mengisi berkas `models.py` dengan kode berikut.
+```text
+from django.db import models
+
+class Product(models.Model):
+    name = models.CharField(max_length=255)
+    amount = models.IntegerField()
+    description = models.TextField()
+```
+3. Membuat migrasi model dengan perintah `python manage.py makemigrations`. Migrasi model adalah cara
+ Django melacak perubahan pada model basis data. Lalu, menerapkan migrasi ke dalam basis data lokal 
+ dengan perintah `python manage.py migrate`. Perlu diingat bahwa setiap kali melakukan perubahan pada
+ model, perlu melakukan migrasi untuk merefleksikan perubahan tersebut.
 
  - [x] Membuat sebuah fungsi pada `views.py` untuk dikembalikan ke dalam sebuah *template* HTML yang menampilkan nama aplikasi serta nama dan kelas kamu.
 
-a
+1. Membuka berkas `views.py` di dalam berkas aplikasi `main`.
+2. Menambahkan `from django.shortcuts import render` di bagian paling atas berkas.
+3. Menambahkan fungsi `show_main`di bawah impor.
+```text
+def show_main(request):
+    context = {
+        'name': 'Arini Widya Pramesti',
+        'class': 'PBP E'
+    }
+
+    return render(request, "main.html", context)
+```
 
  - [x] Membuat sebuah *routing* pada `urls.py` aplikasi `main` untuk memetakan fungsi yang telah dibuat pada `views.py`.
 
-a
+1. Membuka berkas `urls.py` di dalam direktori `beautiful_brews`.
+2. Mengimpor fungsi `include` dari `django.urls` dengan kode ```from django.urls import path,include```.
+   Setelah itu, tambahkan rute URL seperti berikut untuk mengarahkan ke tampilan `main` di dalam 
+   variabel `urlpatterns` dengan kode ```path('main/', include('main.urls')),```.
 
 
 >2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
