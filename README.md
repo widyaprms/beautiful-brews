@@ -130,7 +130,7 @@ def show_main(request):
 
 >2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 
-a
+![Alt text] (Downloads/image_for_tugas2.png)
 
 
 
