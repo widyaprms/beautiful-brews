@@ -3,7 +3,7 @@ from django.test import TestCase
 # Create your tests here.
 
 from django.test import TestCase, Client
-from main.models import Item
+#from main.models import Item
 
 class mainTest(TestCase):
     def test_main_url_is_exist(self):
@@ -14,4 +14,8 @@ class mainTest(TestCase):
         response = Client().get('/main/')
         self.assertTemplateUsed(response, 'main.html')
 
+    def test_template_contains_name_and_class(self):
+        response = self.client.get('/main/')
+        self.assertContains(response, 'Arini Widya Pramesti')
+        self.assertContains(response, 'PBP E')
 
