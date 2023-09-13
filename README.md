@@ -16,9 +16,9 @@ Proyek (*Project*) adalah keseluruhan proyek web yang dibangun dengan menggunaka
  1. Membuat direktori baru dengan nama `beautiful_brews`. Lalu, membuat repositori baru dengan nama 
  `beautiful-brews` dan inisiasi repositori tersebut sebagai repositori Git. Setelah itu, masuk ke dalam
  direktori baru yang sudah dibuat dan buka *command prompt*. 
- 2. Membuat virtual environment dengan menjalankan perintah ```python -m venv env```. Virtual 
+ 2. Membuat *virtual environment* dengan menjalankan perintah ```python -m venv env```. Virtual 
  environment ini berguna untuk mengisolasi *package* serta *dependencies* dari aplikasi sehingga tidak
- bertabrakan dengan versi lain yang ada pada komputer saya. Virtual environment dapat diaktifkan dengan 
+ bertabrakan dengan versi lain yang ada pada komputer saya. *Virtual environment* dapat diaktifkan dengan 
  menjalankan perintah ```env\Scripts\activate.bat```. 
  3. Membuat berkas ```requirements.txt``` dan menambahkan beberapa *dependencies*.
  ```text
@@ -41,7 +41,7 @@ beautiful_brews .```
 membuka http://localhost:8000/. Apabila laman tersebut menampilkan gambar roket, maka proyek Django
 sudah berhasil.
 
-7. Menghentikan server dengan menekan ```CTRL + C``` dan menonaktifkan virtual environment dengan
+7. Menghentikan server dengan menekan ```CTRL + C``` dan menonaktifkan *virtual environment* dengan
 perintah ```deactivate.```
 
 
@@ -134,14 +134,14 @@ def show_main(request):
 
 
 
->3. Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
+>3. Jelaskan mengapa kita menggunakan *virtual environment*? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan *virtual environment*?
 
-Virtual environment dapat digunakan dalam pengembangan aplikasi web, termasuk aplikasi berbasis Django
-yang saat ini sedang saya pelajari. Virtual environmnet memungkinkan untuk membuat lingkungan terisolasi
-untuk setiap proyek yang dikembangkan. Setiap virtual environment memiliki salinan terisolasi dari
-interpreter Python dan pustaka yang diperlukan, yang digunakan untuk menghindari konflik antara pustaka
-proyek yang berbeda. Dengan mengisolasi pustaka dan *dependencies* dalam virtual environment, saya dapat
-dengan mudah mengelola dan membersihkan proyek yang dikembangkan.
+*Virtual environment* dapat digunakan dalam pengembangan aplikasi web, termasuk aplikasi berbasis Django
+yang saat ini sedang saya pelajari. *Virtual environmnet* memungkinkan untuk membuat lingkungan
+terisolasi untuk setiap proyek yang dikembangkan. Setiap *virtual environment* memiliki salinan 
+terisolasi dari interpreter Python dan pustaka yang diperlukan, yang digunakan untuk menghindari konflik 
+antara pustaka proyek yang berbeda. Dengan mengisolasi pustaka dan *dependencies* dalam *virtual 
+environment*, saya dapat dengan mudah mengelola dan membersihkan proyek yang dikembangkan.
 
 
 
