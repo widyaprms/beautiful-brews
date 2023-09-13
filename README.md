@@ -130,7 +130,8 @@ def show_main(request):
 
 >2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 
-![Alt text] (Downloads/image_for_tugas2.png)
+![image_for_tugas2](https://github.com/widyaprms/beautiful-brews/assets/124958742/
+22b60bb6-3732-41be-b59a-10cf2dadfee5)
 
 
 
