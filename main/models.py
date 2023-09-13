@@ -7,12 +7,3 @@ class Item(models.Model):
     amount = models.IntegerField() 
     description = models.TextField() 
 
-
-# function untuk memeriksa stock produk BeautyBrews Co.
-def stock_checking(self):
-    output = ""
-    if self.amount > 0:
-        output = "Stock of " + self.name + " is currently available: " + self.amount + " pcs."
-    else:
-        output = "Stock of " + self.name + " is currently not available."
-    return output
