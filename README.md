@@ -188,15 +188,191 @@ pengguna.
 ## Tugas 3
 >1. Apa perbedaan antara form POST dan form GET dalam Django?
 
+Pada dasarnya, POST dan GET adalah dua metode pengiriman data dalam HTTP *request* yang digunakan untuk mengirimkan data dari *client* 
+(pengguna) ke server. Namun, kedua metode ini memiliki perbedaan cara pengiriman data yang cukup signifikan.
+
+Metode POST mengirimkan data dalam bentuk *request body*. *Request body* adalah bagian dalam HTTP *request* yang berisi data yang ingin
+dikirimkan oleh pengguna ke server. Ketika pengguna mengirimkan data melalui metode POST, data tersebut tidak terlihat atau tersimpan
+pada URL. Sehingga dari segi keamanan, data yang dikirimkan dengan metode POST lebih terjaga.
+
+Sedangkan, metode GET mengirimkan data dalam bentuk *query parameters* yang terdapat pada URL *request*. *Query parameters* ini terdiri
+dari pasangan *key-value* atau nama dan nilai data yang diinginkan. Berbeda dengan POST, data pada GET akan terlihat secara jelas pada
+URL dan terbuka untuk siapa saja yang memiliki akses ke URL tersebut. Sehingga dari segi keamanan, data yang dikirimkan dengan metode
+GET tidak terjaga.
+
+
 >2. Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
 
 >3. Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
 
+JSON atau JavaScript Object Notation, sangat sering digunakan untuk memfasilitasi komunikasi di antara aplikasi web kontemporer karena
+sifatnya yang ramah pengguna, efisien, dan mudah beradaptasi. JSON menggunakan struktur yang tidak rumit seperti objek dan array,
+sehingga pemahaman data menjadi lebih cepat. Tidak hanya itu, keunggulan dari JSON meluas ke kompatibilitas dengan berbagai bahasa
+pemrograman, sehingga memungkinkan komunikasi antar aplikasi yang mulus. JSON juga mudah diurai oleh komputer, bahkan di berbagai
+pustaka yang berbeda.
+
+Selain itu, JSON memiliki keunggulan dalam efisiensi transmisi data di seluruh jaringan. JSON merender data dalam format yang ringan,
+sehingga mengurangi waktu dan sumber daya yang diperlukan untuk transfer. Fleksibilitasnya yang melekat terbukti sangat berharga untuk
+merepresentasikan berbagai tipe data dengan mudah. Selain itu, JSON juga digunakan sebagai pilihan yang aman untuk pertukaran data web,
+menghindari risiko keamanan yang terkait dengan beberapa format lain. Akibatnya, banyak aplikasi web modern memilih JSON sebagai media
+komunikasi utama mereka.
+
+
 >4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
   - [x] Membuat input `form` untuk menambahkan objek model pada app sebelumnya.
+
+  1. Membuat berkas baru pada direktori `main` dengan nama `forms.py` untuk membuat struktur *form* yang dapat menerima data produk
+baru. Tambahkan kode berikut.
+```text
+from django.forms import ModelForm
+from main.models import Item
+
+
+class ItemForm(ModelForm):
+    class Meta:
+        model = Item
+        fields = ["name", "amount", "description"]
+```
+2. Menambahkan beberapa import pada berkas `views.py` yang ada pada folder `main`.
+```text
+from django.http import HttpResponseRedirect
+from main.forms import ItemForm
+from django.urls import reverse
+```
+3. Membuat fungsi baru yang bernama `create_item` pada berkas `views.py`. Tambahkan potongan kode berikut untuk menghasilkan formulir
+yang dapat menambahkan data produk secara otomatis ketika data di-*submit* dari *form*.
+```text
+def create_item(request):
+    form = ItemForm(request.POST or None)
+
+    if form.is_valid() and request.method == "POST":
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "create_item.html", context)
+```
+4. Mengubah fungsi `show_main` yang sudah ada pada berkas `views.py` menjadi sebagai berikut.
+```text
+def show_main(request):
+    items = Item.objects.all()
+
+    context = {
+        'name': 'Arini Widya Pramesti', # Nama kamu
+        'class': 'PBP E', # Kelas PBP kamu
+        'items': items
+    }
+
+    return render(request, "main.html", context)
+```
+5. Membuka berkas `urls.py` pada folder `main` dan *import* fungsi `create_item` dengan menambahkan 
+`from main.views import show_main, create_item`.
+6. Menambahkan *path url* ke dalam `urlpatterns` pada `urls.py` di `main` dengan menambahkan
+`path('create-item', create_item, name='create_item'),` untuk mengakses fungsi yang sudah di*import*.
+7. Membuat berkas HTML yang baru dengan nama `create_item.html` pada direktori `main/templates` dan isilah berkas tersebut dengan kode
+berikut.
+```text
+{% extends 'base.html' %} 
+
+{% block content %}
+<h1>Add New Item</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Add Item"/>
+            </td>
+        </tr>
+    </table>
+</form>
+
+{% endblock %}
+```
+8. Membuka `main.html` dan menambahkan kode berikut untuk menampilkan data item dalam bentuk *table* dan tombol "Add New Item" yang
+akan *redirect* ke halaman *form*.
+```text
+...
+ <table>
+        <tr>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Description</th>
+        </tr>
+    
+        {% comment %} Berikut cara memperlihatkan data item di bawah baris ini {% endcomment %}
+    
+        {% for item in items %}
+            <tr>
+                <td>{{item.name}}</td>
+                <td>{{item.amount}}</td>
+                <td>{{item.description}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+    <br />
+    
+    <a href="{% url 'main:create_item' %}">
+        <button>
+            Add New Item
+        </button>
+    </a>
+    
+    {% endblock content %}
+```
+ 
+
   - [x] Tambahkan 5 fungsi `views` untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML *by ID*, dan 
   JSON *by ID*.
+  
+  1. Menambahkan import berikut ke berkas `views.py` pada folder `main`.
+  ```text
+  from django.http import HttpResponse
+  from django.core import serializers
+  ```
+  2. Menambahkan fungsi yang menerima parameter *request* dengan nama `show_xml` dan `show_json`. Lalu, menambahkan *return function* dalam bentuk `HttpResponse`.
+  ```text
+  def show_xml(request):
+    data = Item.objects.all()
+    return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+
+  def show_json(request):
+    data = Item.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+  ```
+  3. Menambahkan fungsi yang menerima parameter *request* dan id dengan nama `show_xml_by_id` dan `show_json_by_id` untuk mengembalikan
+  data produk berdasarkan id.
+  ```text
+  def show_xml_by_id(request, id):
+    data = Item.objects.filter(pk=id)
+    return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+
+  def show_json_by_id(request, id):
+    data = Item.objects.filter(pk=id)
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+  ```
+
+
   - [x] Membuat routing URL untuk masing-masing `views` yang telah ditambahkan pada poin 2.
+
+  1. Membuka berkas `urls.py` pada folder `main` lalu menambahkan import beberapa fungsi yang sudah dibuat.
+  `from main.views import show_main, create_item, show_xml, show_json, show_xml_by_id, show_json_by_id `
+  2. Menambahkan *path url* ke dalam `urlpatterns` yang ada pada berkas `urls.py`.
+  ```text
+  ...
+  path('xml/', show_xml, name='show_xml'), 
+  path('json/', show_json, name='show_json'), 
+  path('xml/<int:id>/', show_xml_by_id, name='show_xml_by_id'),
+  path('json/<int:id>/', show_json_by_id, name='show_json_by_id'), 
+  ...
+  ```
+
+  
   - [x] Mengakses kelima URL di poin 2 menggunakan Postman, membuat *screenshot* dari hasil akses URL pada Postman, dan menambahkannya
   ke dalam `README.md`.
 
