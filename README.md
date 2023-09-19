@@ -7,7 +7,7 @@ PBP E
 
 
 ## Tugas 2
-<summary>1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+>1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
 Proyek (*Project*) adalah keseluruhan proyek web yang dibangun dengan menggunakan Django. Django itu sendiri adalah sebuah *framework full-stack* untuk membuat aplikasi web dengan bahasa pemrograman Python. 
 
@@ -128,13 +128,13 @@ def show_main(request):
 
 
 
-<summary>2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
+>2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 
 ![image_for_tugas2](https://github.com/widyaprms/beautiful-brews/assets/124958742/22b60bb6-3732-41be-b59a-10cf2dadfee5)
 
 
 
-<summary>3. Jelaskan mengapa kita menggunakan *virtual environment*? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan *virtual environment*?
+>3. Jelaskan mengapa kita menggunakan *virtual environment*? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan *virtual environment*?
 
 *Virtual environment* dapat digunakan dalam pengembangan aplikasi web, termasuk aplikasi berbasis Django
 yang saat ini sedang saya pelajari. *Virtual environmnet* memungkinkan untuk membuat lingkungan
@@ -145,7 +145,7 @@ environment*, saya dapat dengan mudah mengelola dan membersihkan proyek yang dik
 
 
 
-<summary>4. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
+>4. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
 
 MVC (Model-View-Controller), MVT (Model-View-Template), dan MVVM (Model-View-ViewModel) adalah tiga pola
 desain yang berbeda yang digunakan dalam pengembangan perangkat lunak, terutama dalam konteks
@@ -181,4 +181,22 @@ Perbedaan:
 - MVVM memisahkan secara jelas tugas presentasi (ViewModel) dari tampilan (View) dan data (Model).
 - ViewModel tidak hanya mengontrol alur aplikasi, tetapi juga mengelola tampilan data dan tindakan
 pengguna.
+
+
+
+---
+## Tugas 3
+>1. Apa perbedaan antara form POST dan form GET dalam Django?
+
+>2. Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+
+>3. Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+
+>4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+  - [x] Membuat input `form` untuk menambahkan objek model pada app sebelumnya.
+  - [x] Tambahkan 5 fungsi `views` untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML *by ID*, dan 
+  JSON *by ID*.
+  - [x] Membuat routing URL untuk masing-masing `views` yang telah ditambahkan pada poin 2.
+  - [x] Mengakses kelima URL di poin 2 menggunakan Postman, membuat *screenshot* dari hasil akses URL pada Postman, dan menambahkannya
+  ke dalam `README.md`.
 
