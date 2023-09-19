@@ -203,6 +203,26 @@ GET tidak terjaga.
 
 >2. Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
 
+XML adalah bahasa markup yang digunakan untuk mendefinisikan data dengan struktur hierarki. Ini berarti, kita dapat membuat dokumen
+yang memungkinkan kita untuk mewakili data dengan tingkat kompleksitas yang tinggi. XML sering digunakan untuk pertukaran data antara
+aplikasi, penyimpanan data, konfigurasi, dan dalam protokol seperti SOAP dalam layanan web. XML menggunakan tag yang didefinisikan oleh
+pengguna untuk mendefinisikan data dan atribut dalam elemen. Ini fleksibel tetapi dapat menyebabkan dokumen yang lebih besar dan
+kompleks. Parsing XML memerlukan lebih banyak kerja karena kita harus membaca tag dan hierarki.
+
+JSON adalah format data yang ringkas dan ringan yang menggunakan struktur objek. Data disajikan dalam bentuk pasangan key-value. JSON
+sangat populer dalam pengembangan web dan layanan web RESTful. Ini juga digunakan untuk penyimpanan konfigurasi dan pertukaran data
+antara klien dan server dalam aplikasi web modern. JSON memiliki sintaks yang sederhana dan mudah dipahami. Ini lebih efisien dalam hal
+ukuran file dan lebih mudah diuraikan oleh mesin dan manusia. Ini sangat cocok untuk pertukaran data di antara komponen-komponen
+aplikasi dan penggunaan di seluruh internet.
+
+Sedangkan, HTML adalah bahasa markup yang digunakan untuk membuat struktur dan tampilan halaman web. Ini tidak dirancang untuk
+pertukaran data struktural, tetapi untuk representasi konten yang ditampilkan dalam browser web. HTML digunakan untuk membuat tampilan
+halaman web yang dapat diakses oleh pengguna melalui browser web. Ini mengandung tag-tag yang mendefinisikan elemen-elemen seperti
+teks, gambar, tautan, tabel, dan formulir. HTML memiliki sintaks yang ketat dan spesifik untuk membuat tampilan halaman web. Ini bukan
+format data, tetapi bahasa yang digunakan untuk menggambarkan cara tampilan halaman web seharusnya. Data yang ditampilkan dalam halaman
+HTML biasanya disediakan oleh server dan tidak disimpan dalam format HTML itu sendiri.
+
+
 >3. Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
 
 JSON atau JavaScript Object Notation, sangat sering digunakan untuk memfasilitasi komunikasi di antara aplikasi web kontemporer karena
@@ -372,7 +392,7 @@ akan *redirect* ke halaman *form*.
   ...
   ```
 
-  
+
   - [x] Mengakses kelima URL di poin 2 menggunakan Postman, membuat *screenshot* dari hasil akses URL pada Postman, dan menambahkannya
   ke dalam `README.md`.
 
