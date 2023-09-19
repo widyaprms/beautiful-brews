@@ -7,7 +7,7 @@ PBP E
 
 
 ## Tugas 2
->1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+<summary>1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
 Proyek (*Project*) adalah keseluruhan proyek web yang dibangun dengan menggunakan Django. Django itu sendiri adalah sebuah *framework full-stack* untuk membuat aplikasi web dengan bahasa pemrograman Python. 
 
@@ -128,13 +128,13 @@ def show_main(request):
 
 
 
->2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
+<summary>2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 
 ![image_for_tugas2](https://github.com/widyaprms/beautiful-brews/assets/124958742/22b60bb6-3732-41be-b59a-10cf2dadfee5)
 
 
 
->3. Jelaskan mengapa kita menggunakan *virtual environment*? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan *virtual environment*?
+<summary>3. Jelaskan mengapa kita menggunakan *virtual environment*? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan *virtual environment*?
 
 *Virtual environment* dapat digunakan dalam pengembangan aplikasi web, termasuk aplikasi berbasis Django
 yang saat ini sedang saya pelajari. *Virtual environmnet* memungkinkan untuk membuat lingkungan
@@ -145,7 +145,7 @@ environment*, saya dapat dengan mudah mengelola dan membersihkan proyek yang dik
 
 
 
->4. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
+<summary>4. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
 
 MVC (Model-View-Controller), MVT (Model-View-Template), dan MVVM (Model-View-ViewModel) adalah tiga pola
 desain yang berbeda yang digunakan dalam pengembangan perangkat lunak, terutama dalam konteks
