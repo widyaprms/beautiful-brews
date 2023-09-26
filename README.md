@@ -393,9 +393,10 @@ akan *redirect* ke halaman *form*.
   ```
 
 
-  - [x] Mengakses kelima URL di poin 2 menggunakan Postman, membuat *screenshot* dari hasil akses URL pada Postman, dan menambahkannya
-  ke dalam `README.md`.
+  - [x] Mengakses kelima URL di poin 2 menggunakan Postman, membuat *screenshot* dari hasil akses URL pada Postman, dan
+menambahkannya ke dalam `README.md`.
 
+<<<<<<< HEAD
 
 ## Tugas 4
 >1. Apa itu Django `UserCreationForm`, dan jelaskan apa kelebihan dan kekurangannya?
@@ -736,3 +737,19 @@ context = {
 ```
 4. Membuka berkas `main.html` dan tambahkan potongan kode `<h5>Sesi terakhir login: {{ last_login }}</h5>` untuk menampilkan data
 *last login*.
+=======
+- HTML
+  ![html](https://github.com/widyaprms/beautiful-brews/assets/124958742/310216ca-93d4-406b-9ae4-a2eeaae83a9d)
+  
+- XML
+  ![Screenshot (6)](https://github.com/widyaprms/beautiful-brews/assets/124958742/ff556b1a-9204-461d-bb08-a8e2c16d298b)
+  
+- JSON
+  ![Screenshot (5)](https://github.com/widyaprms/beautiful-brews/assets/124958742/3d3e3630-e9a5-4b3c-a1df-2fbeaa8ec012)
+  
+- XML BY ID
+  ![xml by id](https://github.com/widyaprms/beautiful-brews/assets/124958742/3fb7420f-6865-4664-8945-33c89bcf3cc8)
+  
+- JSON BY ID
+![json by id](https://github.com/widyaprms/beautiful-brews/assets/124958742/baf0e622-b98b-40e2-8c5a-29ca1b59d53b)
+>>>>>>> 1846f9eba9cc5bde86d3399afc63a055063c97fc
