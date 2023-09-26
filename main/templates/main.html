@@ -25,6 +25,19 @@
                 <td>{{item.name}}</td>
                 <td>{{item.amount}}</td>
                 <td>{{item.description}}</td>
+
+                <td>
+                    <a href = "increment_amount/{{item.id}}">
+                        <button> + </button>
+                    </a>
+                    <a href = "decrement_amount/{{item.id}}">
+                        <button> - </button>
+                    </a>
+                    <a href = "delete_item/{{item.id}}">
+                        <button> Delete </button>
+                    </a>
+                </td>
+
             </tr>
         {% endfor %}
     </table>
