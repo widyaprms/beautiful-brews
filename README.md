@@ -438,9 +438,18 @@ yang populer untuk Python. Formulir ini digunakan untuk membuat formulir pendaft
 web yang menggunakan Django. Form ini memungkinkan pengguna untuk mendaftar ke situs web dengan mengisi informasi seperti nama pengguna
 (username), kata sandi (password), dan data tambahan lainnya yang mungkin diperlukan oleh aplikasi.
 Kelebihan:
-
+- Pengembangan Yang Cepat
+Hal ini dapat menyederhanakan proses pembuatan formulir registrasi pengguna, menfhemat waktu, dan usaha dalam membangunnya dari awal.
+- Integrasi dengan Autentikasi Django
+`UserCreationForm` terintegrasi dengan sistem autentikasi bawaan Django dengan lancar, menangani pembuatan pengguna, enkripsi kata
+sandi, dan validasi secara otomatis.
 Kekurangan:
-
+- Penyesuaian Terbatas
+Meskipun dapat disesuaikan, untuk formulir registrasi pengguna yang kompleks dengan persyaratan unik, pengguna mungkin merasa terbatas
+dan perlu membangun formulir khusus dari awal.
+- Ketergantungan pada Django
+Jika kita memutuskan untuk menggunakan kerangka kerja web yang berbeda atau beralih dari Django, kita mungkin perlu menulis ulang
+formulir registrasi pengguna akibat ketergantungan `UserCreationForm` pada Django.
 
 >2. Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?
 
@@ -770,7 +779,3 @@ context = {
 4. Membuka berkas `main.html` dan tambahkan potongan kode `<h5>Sesi terakhir login: {{ last_login }}</h5>` untuk menampilkan data
 *last login*.
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a84002dab726739e7ee73ffddfe53d68e38bedf9
