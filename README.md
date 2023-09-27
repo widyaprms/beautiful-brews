@@ -670,18 +670,10 @@ text
  untuk setiap akun di lokal.
 Contoh Akun Pengguna
 - Akun 1
-Username: ariniyey
-Password: arini3333
-* Items: 
-    * Strawberry Cups (15); 250 ml
-    * Halloween Cups (27); 250 ml HALLOWEEN EDITION
+![Screenshot (9)](https://github.com/widyaprms/beautiful-brews/assets/124958742/1664a4f0-2732-4959-ad2a-c8fbd914ebd1)
 
 - Akun 2
-Username: pramezty
-Password: 123456zzz
-* Items:
-    * Small Cups (31); 100 ml
-    * Starbucks Cups (5); 300 ml
+![Screenshot (10)](https://github.com/widyaprms/beautiful-brews/assets/124958742/78a60277-0e80-421d-852a-8bf94f878359)
 
 
 - [x] Menghubungkan model `Item` dengan `User`.
