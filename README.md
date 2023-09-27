@@ -658,7 +658,7 @@ text
 
 - [x] Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya
  untuk setiap akun di lokal.
-Contoh Akun Pengguna
+Contoh Akun Pengguna:
 - Akun 1
 ![Screenshot (9)](https://github.com/widyaprms/beautiful-brews/assets/124958742/1664a4f0-2732-4959-ad2a-c8fbd914ebd1)
 
