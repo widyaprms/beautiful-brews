@@ -506,8 +506,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages  
 ```
 2. Menambahkan potongan kode di bawah ini pada fungsi `register` yang sudah dibuat.
-text
-```
+```text
 def register(request):
     form = UserCreationForm()
 
@@ -521,8 +520,7 @@ def register(request):
     return render(request, 'register.html', context)
 ```
 3. Membuat berkas HTML baru dengan nama `register.html` pada folder `main/templates` dan mengisi dengan kode di bawah.
-text
-```
+```text
 {% extends 'base.html' %}
 
 {% block meta %}
@@ -564,8 +562,7 @@ text
 - Membuat Fungsi *Login*
 1. Membuka berkas `views.py` pada subdirektori `main` dan menambahkan *import* `from django.contrib.auth import authenticate, login`.
 2. Menambahkan potongan kode di bawah ini pada fungsi `login` yang sudah dibuat.
-text
-```
+```text
 def login_user(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -634,16 +631,14 @@ text
 - Membuat Fungsi *Logout*
 1. Membuka berkas `views.py` pada subdirektori `main` dan menambahkan *import* `from django.contrib.auth import logout`.
 2. Menambahkan potongan kode di bawah ini pada fungsi `logout` yang sudah dibuat.
-text
-```
+```text
 def logout_user(request):
     logout(request)
     return redirect('main:login')
 ```
 3. Membuka berkas `main.html` pada folder `main/templates` lalu menambahkan potongan kode di bawah ini setelah *hyperlink tag* untuk
 *Add New Item*.
-text
-```
+```text
 ...
 <a href="{% url 'main:logout' %}">
     <button>
@@ -658,7 +653,7 @@ text
 
 - [x] Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya
  untuk setiap akun di lokal.
-Contoh Akun Pengguna:
+Contoh Akun Pengguna :
 - Akun 1
 ![Screenshot (9)](https://github.com/widyaprms/beautiful-brews/assets/124958742/1664a4f0-2732-4959-ad2a-c8fbd914ebd1)
 
@@ -671,15 +666,13 @@ Contoh Akun Pengguna:
 1. Membuka berkas `models.py` pada subdirektori `main` dan tambahkan kode `from django.contrib.auth.models import User` untuk *import*
 model.
 2. Menambahkan potongan kode di bawah ini pada model `Item` yang sudah dibuat.
-text
-```
+```text
 class Item(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     ...
 ```
 3. Membuka berkas `views.py` pada subdirektori `main` dan ubah potongan kode pada fungsi `create_item`.
-text
-```
+```text
 def create_item(request):
  form = ItemForm(request.POST or None)
 
@@ -690,8 +683,7 @@ def create_item(request):
      return HttpResponseRedirect(reverse('main:show_main'))
 ```
 4. Mengubah fungsi `show_main`.
-text
-```
+```text
 def show_main(request):
     products = Product.objects.filter(user=request.user)
 
@@ -709,15 +701,13 @@ def show_main(request):
  halaman utama aplikasi.
  
  1. Membuka `views.py` pada subdirektori `main` dan tambahkan *import*.
- text
- ```
+ ```text
 import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 ```
 2. Menambahkan fungsi untuk menambahkan *cookies* yang bernama `last_login` pada fungsi `login_user`.
-text
-```
+```text
 ...
 if user is not None:
     login(request, user)
@@ -727,8 +717,7 @@ if user is not None:
 ...
 ```
 3. Menambahkan potongan kode `last_login` pada fungsi `show_main`.
-text
-```
+```text
 context = {
     'name': 'Arini Widya Pramesti',
     'class': 'PBP E',
