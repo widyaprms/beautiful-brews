@@ -420,19 +420,16 @@ Django `UserCreationForm` adalah salah satu form yang disediakan oleh Django, se
 yang populer untuk Python. Form ini digunakan untuk membuat form registrasi pengguna (*user registration form*) dalam aplikasi
 web yang menggunakan Django. Form ini memungkinkan pengguna untuk mendaftar ke sebuah website dengan mengisi informasi seperti nama
 pengguna (*username*), kata sandi (*password*), dan data tambahan lainnya yang mungkin diperlukan oleh aplikasi.
-Kelebihan:
-- Pengembangan Yang Cepat
-Hal ini dapat menyederhanakan proses pembuatan form registrasi pengguna, menghemat waktu, dan tenaga untuk membangunnya dari awal.
-- Integrasi dengan Autentikasi Django
-`UserCreationForm` terintegrasi dengan sistem autentikasi bawaan Django dengan lancar, menangani pembuatan pengguna, enkripsi kata
-sandi, dan validasi secara otomatis.
-Kekurangan:
-- Penyesuaian Terbatas
-Meskipun dapat disesuaikan, untuk form registrasi pengguna yang kompleks dengan persyaratan unik, pengguna mungkin merasa terbatas
-dan perlu membuat form khusus dari awal.
-- Ketergantungan pada Django
-Jika kita memutuskan untuk menggunakan *framework* web yang berbeda atau berpindah dari Django, kita mungkin perlu menulis ulang
-form registrasi pengguna akibat ketergantungan `UserCreationForm` pada Django.
+* Kelebihan:
+    * Pengembangan Yang Cepat - Hal ini dapat menyederhanakan proses pembuatan form registrasi pengguna, menghemat waktu, dan tenaga
+    untuk membangunnya dari awal.
+    * Integrasi dengan Autentikasi Django - `UserCreationForm` terintegrasi dengan sistem autentikasi bawaan Django dengan lancar,
+    menangani pembuatan pengguna, enkripsi kata sandi, dan validasi secara otomatis.
+* Kekurangan:
+    * Penyesuaian Terbatas - Meskipun dapat disesuaikan, untuk form registrasi pengguna yang kompleks dengan persyaratan unik, pengguna
+    mungkin merasa terbatas dan perlu membuat form khusus dari awal.
+    * Ketergantungan pada Django - Jika kita memutuskan untuk menggunakan *framework* web yang berbeda atau berpindah dari Django, kita
+    mungkin perlu menulis ulang form registrasi pengguna akibat ketergantungan `UserCreationForm` pada Django.
 
 >2. Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?
 
@@ -463,43 +460,36 @@ pengguna antar permintaan web sehingga aplikasi dapat mengenali pengguna yang be
 mereka di situs web.
 
 Berikut adalah cara Django menggunakan cookies untuk mengelola data sesi pengguna:
-- Mengidentifikasi Pengguna
-Setelah pengguna *login*, Django dapat menggunakan *cookies* untuk menyimpan ID sesi pengguna atau
+- Mengidentifikasi Pengguna - Setelah pengguna *login*, Django dapat menggunakan *cookies* untuk menyimpan ID sesi pengguna atau
 informasi lain yang mengidentifikasi pengguna tersebut. Informasi ini kemudian digunakan untuk mengenali pengguna di permintaan
 selanjutnya.
-- Penyimpanan Data Sesi
-Django dapat menggunakan *cookies* untuk menyimpan data sesi pengguna seperti preferensi, *shopping list*,
+- Penyimpanan Data Sesi - Django dapat menggunakan *cookies* untuk menyimpan data sesi pengguna seperti preferensi, *shopping list*,
 atau informasi lainnya yang harus diingat antar permintaan web. Data ini dapat digunakan untuk memberikan pengalaman yang lebih
 personal dan nyaman kepada pengguna.
-- Keamanan *Cookies*
-Django memiliki dukungan keamanan yang kuat untuk *cookies*, yaitu termasuk opsi untuk mengenkripsi dan menandatangani *cookies*. Hal
-ini yang menjaga integritas dan kerahasiaan data yang disimpan di dalamnya dan mencegah pengguna dari memodifikasi cookies dengan data
-yang tidak sah.
-- Pengaturan *Cookies*
-Dalam pengaturan proyek Django, kita dapat mengkonfigurasi berbagai aspek terkait *cookies*, termasuk nama *cookie*, lama waktu
-penyimpanan, domain yang dapat mengakses *cookie*, dan lain-lain. Hal ini memberikan fleksibilitas dalam mengelola *cookies* sesuai
-dengan kebutuhan aplikasi kita.
-- Menghapus *Cookies*
-Django juga memberikan cara untuk menghapus *cookies* sesi pengguna saat sesi mereka berakhir, biasanya setelah pengguna keluar atau
-sesi mereka berakhir.
+- Keamanan *Cookies* - Django memiliki dukungan keamanan yang kuat untuk *cookies*, yaitu termasuk opsi untuk mengenkripsi dan
+menandatangani *cookies*. Hal ini yang menjaga integritas dan kerahasiaan data yang disimpan di dalamnya dan mencegah pengguna dari
+memodifikasi cookies dengan data yang tidak sah.
+- Pengaturan *Cookies* - Dalam pengaturan proyek Django, kita dapat mengkonfigurasi berbagai aspek terkait *cookies*, termasuk nama
+*cookie*, lama waktu penyimpanan, domain yang dapat mengakses *cookie*, dan lain-lain. Hal ini memberikan fleksibilitas dalam mengelola
+*cookies* sesuai dengan kebutuhan aplikasi kita.
+- Menghapus *Cookies* - Django juga memberikan cara untuk menghapus *cookies* sesi pengguna saat sesi mereka berakhir, biasanya setelah
+pengguna keluar atau sesi mereka berakhir.
 
 
 >4. Apakah penggunaan *cookies* aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
 
 Penggunaan *cookies* dalam pengembangan web dapat aman jika diimplementasikan dengan baik dan memperhatikan praktik-praktik keamanan
 yang tepat. Namun, ada beberapa risiko potensial yang harus diwaspadai ketika menggunakan *cookies*:
-- *Cookie Tampering*
-Pengguna jahat dapat mencoba memanipulasi atau mencuri *cookies* dari pengguna lain. Misalnya, jika *cookies* mengandung data sesi atau
-token otentikasi, pencuri *cookies* dapat mencoba menggunakan informasi tersebut untuk mengakses akun pengguna tanpa izin.
-- Penyerangan Terhadap *Cookies*
-Serangan terhadap *cookies* biasanya ada dua jenis, yaitu *cross-site scripting* (XSS) dan *cross-site request forgery* (CSRF). XSS
-dapat digunakan untuk mencuri *cookies* dari pengguna. Jika aplikasi web tidak memvalidasi atau menghindari input pengguna dengan
-benar, penyerang dapat menyisipkan *script* jahat yang mencuri *cookies* pengguna saat dijalankan oleh pengguna yang lain. Sedangkan,
-CSRF menargetkan *cookies* yang digunakan untuk mengotentikasi pengguna. Penyerang dapat memaksa pengguna yang sudah login untuk
-melakukan tindakan tanpa izin pada situs web tertentu.
-- *Cookie Clutter*
-Terlalu banyak *cookies* dapat mempengaruhi kinerja aplikasi web dan pengalaman pengguna. Memantau dan mengelola *cookies* yang
-digunakan oleh aplikasi kita merupakan hal yang penting untuk dilakukan supaya kinerja aplikasi web kita tidak menurun.
+- *Cookie Tampering* - Pengguna jahat dapat mencoba memanipulasi atau mencuri *cookies* dari pengguna lain. Misalnya, jika *cookies*
+mengandung data sesi atau token otentikasi, pencuri *cookies* dapat mencoba menggunakan informasi tersebut untuk mengakses akun
+pengguna tanpa izin.
+- Penyerangan Terhadap *Cookies* - Serangan terhadap *cookies* biasanya ada dua jenis, yaitu *cross-site scripting* (XSS) dan
+*cross-site request forgery* (CSRF). XSS dapat digunakan untuk mencuri *cookies* dari pengguna. Jika aplikasi web tidak memvalidasi
+atau menghindari input pengguna dengan benar, penyerang dapat menyisipkan *script* jahat yang mencuri *cookies* pengguna saat
+dijalankan oleh pengguna yang lain. Sedangkan, CSRF menargetkan *cookies* yang digunakan untuk mengotentikasi pengguna. Penyerang dapat
+memaksa pengguna yang sudah login untuk melakukan tindakan tanpa izin pada situs web tertentu.
+- *Cookie Clutter* - Terlalu banyak *cookies* dapat mempengaruhi kinerja aplikasi web dan pengalaman pengguna. Memantau dan mengelola 
+*cookies* yang digunakan oleh aplikasi kita merupakan hal yang penting untuk dilakukan supaya kinerja aplikasi web kita tidak menurun.
 
 
 >5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
@@ -507,7 +497,7 @@ digunakan oleh aplikasi kita merupakan hal yang penting untuk dilakukan supaya k
 - [x] Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan
 lancar.
 
-- Membuat fungsi registrasi
+- Membuat Fungsi Registrasi
 1. Membuka berkas `views.py` pada subdirektori `main` dan menambahkan *import*.
 text
 ```
@@ -571,7 +561,7 @@ text
 4. Membuka berkas `urls.py` pada subdirektori `main` dan *import* fungsi `from main.views import register` serta tambahkan *path url* 
 `path('register/', register, name='register'),` ke dalam `urlpatterns`.
 
-- Membuat fungsi login
+- Membuat Fungsi *Login*
 1. Membuka berkas `views.py` pada subdirektori `main` dan menambahkan *import* `from django.contrib.auth import authenticate, login`.
 2. Menambahkan potongan kode di bawah ini pada fungsi `login` yang sudah dibuat.
 text
@@ -641,7 +631,7 @@ text
 4. Membuka berkas `urls.py` pada subdirektori `main` dan *import* fungsi `from main.views import login_user` serta tambahkan *path url*
 `path('login/', login_user, name='login'),` ke dalam `urlpatterns`.
 
-- Membuat fungsi logout
+- Membuat Fungsi *Logout*
 1. Membuka berkas `views.py` pada subdirektori `main` dan menambahkan *import* `from django.contrib.auth import logout`.
 2. Menambahkan potongan kode di bawah ini pada fungsi `logout` yang sudah dibuat.
 text
