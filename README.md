@@ -416,39 +416,36 @@ menambahkannya ke dalam `README.md`.
 ## Tugas 4
 >1. Apa itu Django `UserCreationForm`, dan jelaskan apa kelebihan dan kekurangannya?
 
-Django `UserCreationForm` adalah salah satu bentuk dari formulir yang disediakan oleh Django, sebuah kerangka kerja pengembangan web
-yang populer untuk Python. Formulir ini digunakan untuk membuat formulir pendaftaran pengguna (user registration form) dalam aplikasi
-web yang menggunakan Django. Form ini memungkinkan pengguna untuk mendaftar ke situs web dengan mengisi informasi seperti nama pengguna
-(username), kata sandi (password), dan data tambahan lainnya yang mungkin diperlukan oleh aplikasi.
+Django `UserCreationForm` adalah salah satu form yang disediakan oleh Django, sebuah *framework* pengembangan web
+yang populer untuk Python. Form ini digunakan untuk membuat form registrasi pengguna (*user registration form*) dalam aplikasi
+web yang menggunakan Django. Form ini memungkinkan pengguna untuk mendaftar ke sebuah website dengan mengisi informasi seperti nama
+pengguna (*username*), kata sandi (*password*), dan data tambahan lainnya yang mungkin diperlukan oleh aplikasi.
 Kelebihan:
 - Pengembangan Yang Cepat
-Hal ini dapat menyederhanakan proses pembuatan formulir registrasi pengguna, menfhemat waktu, dan usaha dalam membangunnya dari awal.
+Hal ini dapat menyederhanakan proses pembuatan form registrasi pengguna, menghemat waktu, dan tenaga untuk membangunnya dari awal.
 - Integrasi dengan Autentikasi Django
 `UserCreationForm` terintegrasi dengan sistem autentikasi bawaan Django dengan lancar, menangani pembuatan pengguna, enkripsi kata
 sandi, dan validasi secara otomatis.
 Kekurangan:
 - Penyesuaian Terbatas
-Meskipun dapat disesuaikan, untuk formulir registrasi pengguna yang kompleks dengan persyaratan unik, pengguna mungkin merasa terbatas
-dan perlu membangun formulir khusus dari awal.
+Meskipun dapat disesuaikan, untuk form registrasi pengguna yang kompleks dengan persyaratan unik, pengguna mungkin merasa terbatas
+dan perlu membuat form khusus dari awal.
 - Ketergantungan pada Django
-Jika kita memutuskan untuk menggunakan kerangka kerja web yang berbeda atau beralih dari Django, kita mungkin perlu menulis ulang
-formulir registrasi pengguna akibat ketergantungan `UserCreationForm` pada Django.
+Jika kita memutuskan untuk menggunakan *framework* web yang berbeda atau berpindah dari Django, kita mungkin perlu menulis ulang
+form registrasi pengguna akibat ketergantungan `UserCreationForm` pada Django.
 
 >2. Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?
 
-Autentikasi adalah proses verifikasi identitas pengguna. Ini berarti memeriksa apakah pengguna yang mencoba mengakses aplikasi web
-adalah pengguna yang mereka klaim. Dalam Django, autentikasi sering melibatkan verifikasi nama pengguna (username) dan kata sandi
-(password). Pengguna harus memberikan kombinasi yang benar dari kedua informasi ini untuk dianggap berhasil diotentikasi. Django
-memiliki sistem autentikasi bawaan yang mengelola autentikasi pengguna dengan menggunakan model pengguna bawaan (default user model)
-atau model pengguna yang sudah disesuaikan. Ini juga menyediakan berbagai metode otentikasi tambahan seperti otentikasi berbasis
-token atau OAuth.
+Autentikasi adalah proses verifikasi identitas pengguna. Autentikasi berarti memeriksa apakah pengguna yang mencoba mengakses aplikasi
+web adalah pengguna yang yang sesungguhnya. Dalam Django, autentikasi sering melibatkan verifikasi nama pengguna (*username*) dan kata
+sandi (*password*). Pengguna harus memberikan kombinasi yang benar dari kedua informasi ini untuk dianggap berhasil diotentikasi. Django
+memiliki sistem autentikasi bawaan yang mengelola autentikasi pengguna dengan menggunakan *default user model* atau *user model* yang
+sudah disesuaikan. Ini juga menyediakan berbagai metode otentikasi tambahan seperti otentikasi berbasis token atau OAuth.
 
 Sedangkan, otorisasi adalah proses yang memutuskan apa yang diizinkan atau tidak diizinkan oleh pengguna setelah pengguna
-diautentikasi. Ini berkaitan dengan hak akses dan perizinan. Dalam Django, otorisasi berhubungan dengan aturan yang mengatur siapa yang
-memiliki akses ke bagian tertentu dari aplikasi web dan apa yang dapat mereka lakukan setelah diotentikasi. Ini dilakukan dengan
-menggunakan peran (roles) dan izin (permissions). Django memiliki sistem otorisasi bawaan yang memungkinkan pengembang untuk
+diautentikasi. Otorisasi berkaitan dengan hak akses dan perizinan. Dalam Django, otorisasi berhubungan dengan aturan yang mengatur siapa yang memiliki akses ke bagian tertentu dari aplikasi web dan apa yang dapat mereka lakukan setelah diotentikasi. Ini dilakukan dengan menggunakan peran (*roles*) dan izin (*permissions*). Django memiliki sistem otorisasi bawaan yang memungkinkan pengembang untuk
 mendefinisikan peran (seperti "admin" atau "pengguna biasa") dan mengaitkan izin dengan peran tersebut. Ini memungkinkan pengembang
-untuk mengontrol akses ke tampilan (views), objek, atau fitur tertentu berdasarkan peran dan izin pengguna.
+untuk mengontrol akses ke *views*, objek, atau fitur tertentu berdasarkan peran dan izin pengguna.
 
 Autentikasi dan otorisasi penting karena autentikasi membantu memastikan bahwa hanya pengguna yang diautentikasi yang dapat mengakses
 sumber daya tertentu dalam aplikasi dan otorisasi memastikan bahwa pengguna hanya memiliki akses ke sumber daya yang mereka izinkan
@@ -456,55 +453,53 @@ berdasarkan peran dan izin mereka. Autentikasi dan otorisasi juga memungkinkan a
 memastikan bahwa pengguna hanya dapat mengakses atau mengubah data yang seharusnya mereka akses atau ubah.
 
 
->3. Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?
+>3. Apa itu *cookies* dalam konteks aplikasi web, dan bagaimana Django menggunakan *cookies* untuk mengelola data sesi pengguna?
 
-Cookies adalah file teks kecil yang disimpan di komputer atau perangkat pengguna saat mereka mengunjungi sebuah situs web. Cookies
+*Cookies* adalah file teks kecil yang disimpan di komputer atau perangkat pengguna saat mereka mengunjungi sebuah situs web. *Cookies*
 digunakan dalam konteks aplikasi web untuk menyimpan informasi yang dapat digunakan secara berkelanjutan selama sesi pengguna atau
-bahkan dalam beberapa kunjungan pengguna ke situs web yang sama. Django, seperti banyak kerangka kerja web lainnya, menggunakan cookies
-untuk mengelola data sesi pengguna. Dalam konteks Django, cookies digunakan untuk mengimplementasikan dan mengelola sesi pengguna.
-Sesuai dengan paradigma stateless HTTP, cookies membantu menyimpan data pengguna antar permintaan web sehingga aplikasi dapat mengenali
-pengguna yang berbeda dan menjaga konteks atau keadaan selama sesi mereka di situs web.
+bahkan dalam beberapa kunjungan pengguna ke situs web yang sama. Dalam Django, *cookies* digunakan untuk mengelola data sesi pengguna
+dan mengimplementasikan serta mengelola sesi pengguna. Sesuai dengan paradigma *stateless* HTTP, *cookies* membantu menyimpan data
+pengguna antar permintaan web sehingga aplikasi dapat mengenali pengguna yang berbeda dan menjaga konteks atau keadaan selama sesi
+mereka di situs web.
 
 Berikut adalah cara Django menggunakan cookies untuk mengelola data sesi pengguna:
 - Mengidentifikasi Pengguna
-Setelah pengguna mengotentikasi diri (login), Django dapat menggunakan cookies untuk menyimpan ID sesi pengguna atau informasi lain
-yang mengidentifikasi pengguna tersebut. Informasi ini kemudian digunakan untuk mengenali pengguna di permintaan selanjutnya.
+Setelah pengguna *login*, Django dapat menggunakan *cookies* untuk menyimpan ID sesi pengguna atau
+informasi lain yang mengidentifikasi pengguna tersebut. Informasi ini kemudian digunakan untuk mengenali pengguna di permintaan
+selanjutnya.
 - Penyimpanan Data Sesi
-Django dapat menggunakan cookies untuk menyimpan data sesi pengguna seperti preferensi, keranjang belanja, atau informasi lainnya yang
-harus diingat antar permintaan web. Data ini dapat digunakan untuk memberikan pengalaman yang lebih personal dan nyaman kepada pengguna.
-- Keamanan Cookies
-Django memiliki dukungan keamanan yang kuat untuk cookies. Ini termasuk opsi untuk mengenkripsi dan menandatangani cookies, yang
-menjaga integritas dan kerahasiaan data yang disimpan di dalamnya. Hal ini mencegah pengguna dari memodifikasi cookies dengan data yang
-tidak sah.
-- Pengaturan Cookies
-Dalam pengaturan proyek Django, kita dapat mengkonfigurasi berbagai aspek terkait cookies, termasuk nama cookie, lama waktu
-penyimpanan, domain yang dapat mengakses cookie, dan banyak lagi. Ini memberikan fleksibilitas dalam mengelola cookies sesuai dengan
-kebutuhan aplikasi kita.
-- Middleware
-Django menggunakan middleware untuk mengelola cookies. Middleware ini mengambil permintaan dari pengguna dan merespons dengan cara yang
-sesuai dengan pengaturan cookies. Salah satu middleware yang umum digunakan adalah 
-`django.contrib.sessions.middleware.SessionMiddleware`, yang bertanggung jawab atas pengelolaan sesi pengguna.
-- Menghapus Cookies
-Django juga memberikan cara untuk menghapus cookies sesi pengguna saat sesi mereka berakhir, biasanya setelah pengguna keluar atau sesi
-mereka berakhir.
+Django dapat menggunakan *cookies* untuk menyimpan data sesi pengguna seperti preferensi, *shopping list*,
+atau informasi lainnya yang harus diingat antar permintaan web. Data ini dapat digunakan untuk memberikan pengalaman yang lebih
+personal dan nyaman kepada pengguna.
+- Keamanan *Cookies*
+Django memiliki dukungan keamanan yang kuat untuk *cookies*, yaitu termasuk opsi untuk mengenkripsi dan menandatangani *cookies*. Hal
+ini yang menjaga integritas dan kerahasiaan data yang disimpan di dalamnya dan mencegah pengguna dari memodifikasi cookies dengan data
+yang tidak sah.
+- Pengaturan *Cookies*
+Dalam pengaturan proyek Django, kita dapat mengkonfigurasi berbagai aspek terkait *cookies*, termasuk nama *cookie*, lama waktu
+penyimpanan, domain yang dapat mengakses *cookie*, dan lain-lain. Hal ini memberikan fleksibilitas dalam mengelola *cookies* sesuai
+dengan kebutuhan aplikasi kita.
+- Menghapus *Cookies*
+Django juga memberikan cara untuk menghapus *cookies* sesi pengguna saat sesi mereka berakhir, biasanya setelah pengguna keluar atau
+sesi mereka berakhir.
 
 
->4. Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
+>4. Apakah penggunaan *cookies* aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
 
-Penggunaan cookies dalam pengembangan web dapat aman jika diimplementasikan dengan baik dan memperhatikan praktik-praktik keamanan yang
-tepat. Namun, ada beberapa risiko potensial yang harus diwaspadai ketika menggunakan cookies:
-- Cookie Tampering
-Pengguna jahat dapat mencoba memanipulasi atau mencuri cookies dari pengguna lain. Misalnya, jika cookies mengandung data sesi atau
-token otentikasi, pencuri cookies dapat mencoba menggunakan informasi tersebut untuk mengakses akun pengguna tanpa izin.
-- Cross-Site Scripting (XSS)
-Serangan XSS dapat digunakan untuk mencuri cookies dari pengguna. Jika aplikasi web tidak memvalidasi atau menghindari input pengguna
-dengan benar, penyerang dapat menyisipkan skrip jahat yang mencuri cookies pengguna saat dijalankan oleh pengguna yang lain.
-- Cross-Site Request Forgery (CSRF)
-Cookies yang digunakan untuk mengotentikasi pengguna dapat menjadi target CSRF. Penyerang dapat memaksa pengguna yang sudah login untuk
+Penggunaan *cookies* dalam pengembangan web dapat aman jika diimplementasikan dengan baik dan memperhatikan praktik-praktik keamanan
+yang tepat. Namun, ada beberapa risiko potensial yang harus diwaspadai ketika menggunakan *cookies*:
+- *Cookie Tampering*
+Pengguna jahat dapat mencoba memanipulasi atau mencuri *cookies* dari pengguna lain. Misalnya, jika *cookies* mengandung data sesi atau
+token otentikasi, pencuri *cookies* dapat mencoba menggunakan informasi tersebut untuk mengakses akun pengguna tanpa izin.
+- Penyerangan Terhadap *Cookies*
+Serangan terhadap *cookies* biasanya ada dua jenis, yaitu *cross-site scripting* (XSS) dan *cross-site request forgery* (CSRF). XSS
+dapat digunakan untuk mencuri *cookies* dari pengguna. Jika aplikasi web tidak memvalidasi atau menghindari input pengguna dengan
+benar, penyerang dapat menyisipkan *script* jahat yang mencuri *cookies* pengguna saat dijalankan oleh pengguna yang lain. Sedangkan,
+CSRF menargetkan *cookies* yang digunakan untuk mengotentikasi pengguna. Penyerang dapat memaksa pengguna yang sudah login untuk
 melakukan tindakan tanpa izin pada situs web tertentu.
-- Cookie Clutter (Penumpukan Cookies)
-Terlalu banyak cookies dapat mempengaruhi kinerja aplikasi web dan pengalaman pengguna. Selalu penting untuk memantau dan mengelola
-cookies yang digunakan oleh aplikasi Anda.
+- *Cookie Clutter*
+Terlalu banyak *cookies* dapat mempengaruhi kinerja aplikasi web dan pengalaman pengguna. Memantau dan mengelola *cookies* yang
+digunakan oleh aplikasi kita merupakan hal yang penting untuk dilakukan supaya kinerja aplikasi web kita tidak menurun.
 
 
 >5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
