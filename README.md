@@ -833,6 +833,11 @@ tersebut akan lebih besar daripada kontennya.
 | Memiliki memberikan fleksibilitas dan adaptabilitas tinggi terhadap proyek. | Sering kali menghasilkan tampilan yang lebih konsisten di seluruh proyek karena menggunakan komponen yang telah didefinisikan. |
 | Memiliki pembelajaran yang lebih curam karena memerlukan pemahaman terhadap kelas-kelas utilitas yang tersedia dan bagaimana menggabungkannya untuk mencapai tampilan yang diinginkan. | Memiliki pembelajaran yang lebih cepat untuk pemula karena dapat mulai dengan komponen yang telah didefinisikan. |
 
+Tailwind CSS sebaiknya digunakan apabila kita menginginkan tingkat kontrol yang tinggi terhadap tampilan web kita, memedulikan ukuran
+berkas dan kecepatan pemuatan halaman, serta menginginkan percobaan pendekatan pengembangan yang lebih bersih dan terstruktur.
+Sedangkan, Bootstrap sebaiknya digunakan apabila kita memerlukan pengembangan cepat dengan komponen siap pakai, memiliki desain
+yabg konsisten, serta memiliki pengalaman yang cukup dalam menggunakan *framework* ini.
+
 
  >5. Jelaskan bagaimana cara kamu mengimplementasikan *checklist* di atas secara *step-by-step* (bukan hanya sekadar mengikuti tutorial).
 
