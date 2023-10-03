@@ -728,3 +728,377 @@ context = {
 4. Membuka berkas `main.html` dan tambahkan potongan kode `<h5>Sesi terakhir login: {{ last_login }}</h5>` untuk menampilkan data
 *last login*.
 
+
+---
+## Tugas 5
+>1. Jelaskan manfaat dari setiap *element selector* dan kapan waktu yang tepat untuk menggunakannya.
+
+- *Element Selector*
+*Element Selector* memungkinkan kita mengubah properti untuk semua elemen yang memiliki tag HTML yang sama.
+Contoh penggunaan *Element Selector*:
+```text
+<body>
+  <div>
+    <h1>Halo nama saya A</h1>
+    <h2>Halo kalau saya B</h2>
+  </div>
+  ...
+</body>
+```
+- ID *Selector*
+ID *selector* menggunakan ID pada tag sebagai selector-nya. ID bersifat unik dalam satu halaman web. ID dapat ditambahkan pada halaman
+template HTML.
+Contoh penggunaan ID *Selector* pada *template* HTML:
+```text
+<body>
+  <div id="header">
+    <h1>Halo nama saya A</h1>
+  </div>
+  ...
+</body>
+```
+- *Class Selector*
+*Class Selector* memungkinkan kita untuk mengelompokkan elemen dengan karakteristik yang sama.
+Contoh penggunaan *Class Selector* pada *template* HTML:
+```text
+...
+<div id="main">
+    <div class="content_section">
+        <p class="date">published: 3 Oktober 2023</p>
+        <h2><a href="">Tugas 5 ku</a></h2>
+        <p id="content_1">Tugas sudah selesai</p>
+    </div>
+    <div class="content_section">
+        <p class="date ">published: 4 Oktober 2023</p>
+        <h2><a href="">Tugas 5 mu</a></h2>
+        <p id="content_2">Tugas dalam proses pengerjaan</p>
+    </div>
+    <div class="content_section">
+        <p>published: 5 Oktober 2023</p>
+        <h2><a href="">Tugas 5 semua</a></h2>
+        <p id="content_3">Tugas belum dikerjakan</p>
+    </div>
+</div>
+...
+```
+
+
+
+ >2. Jelaskan HTML5 Tag yang kamu ketahui.
+
+HTML5 adalah versi terbaru dari bahasa markup HTML (*Hypertext Markup Language*) yang digunakan untuk membangun dan merancang halaman
+web. Beberapa HTML5 Tag yang saya ketahui, yaitu:
+
+- `<header>`: Tag ini digunakan untuk mendefinisikan *header* dari sebuah halaman web atau bagian dari sebuah elemen konten.
+- `<nav>`: Tag ini digunakan untuk mendefinisikan bagian navigasi dari sebuah halaman web, seperti menu utama atau menu samping.
+- `<section>`: Tag ini digunakan untuk mengelompokkan konten yang memiliki tema atau topik tertentu dalam halaman web.
+- `<footer>`: tag ini digunakan untuk mendefinisikan *footer* dari sebuah halaman web atau bagian dari sebuah elemen konten.
+- `<main>`: Tag ini digunakan untuk menandai konten utama dari sebuah halaman web, dan biasanya hanya boleh ada satu elemen `<main>`
+dalam satu halaman.
+- `<form>`: Tag ini digunakan untuk membuat formulir yang memungkinkan pengguna untuk mengirimkan data ke server web.
+- `<input>`: Tag ini digunakan dalam formulir untuk membuat berbagai jenis input, seperti teks, *password*, *check button*, 
+*radio button*, dan lain-lain.
+- `<a>`: Tag ini digunakan untuk membuat *link* ke halaman web lain atau ke berkas lain di dalam situs web yang sama.
+- `<ul>`, `<ol>`, dan `<li>`: Tag ini digunakan untuk membuat *unordered list*, *ordered list*, dan *item* daftar dalam HTML.
+- `<div>`: Tag ini digunakan untuk mengelompokkan elemen-elemen HTML ke dalam sebuah blok kontainer yang dapat diatur tampilannya
+dengan CSS.
+- `<span>`: Tag ini digunakan untuk mengelompokkan elemen-elemen dalam baris teks dan memungkinkan kita untuk mengaplikasikan *style*
+atau pemrosesan khusus pada teks tersebut.
+
+
+ >3. Jelaskan perbedaan antara *margin* dan *padding*.
+
+*Margin* adalah bagian ruang di luar batas elemen dalam halaman web atau dalam tata letak elemen HTML. Dalam CSS, *margin* digunakan
+untuk mengatur jarak antara elemen tersebut dan elemen-elemen lain di sekitarnya. Kita dapat mengatur *margin* atas, bawah, kiri, dan
+kanan dari suatu elemen secara independen. *Margin* juga menciptakan ruang kosong di sekitar elemen, yang berfungsi sebagai isolator
+untuk elemen tersebut. Hal ini dapat memastikan bahwa elemen tidak terlalu berdekatan dengan elemen lain, sehingga meningkatkan
+estetika halaman web. Selain itu, apabila dua elemen bertabrakan atau saling tumpang tindih, *margin* dapat digunakan untuk mengatasi
+konflik tersebut dengan memberikan ruang ekstra di antara mereka.
+
+Sedangkan, *padding* adalah bagian dari tata letak elemen HTML yang berada di antara batas elemen tersebut dan kontennya sendiri. Dalam
+CSS, *padding* digunakan untuk mengatur jarak antara konten dalam elemen dan batas elemen yang memungkinkan kita untuk mengontrol
+seberapa jauh konten berada dari tepi elemen. *Padding* juga membantu mengisolasi konten elemen dari elemen-elemen lain di sekitarnya,
+sehingga kita dapat memastikan bahwa konten elemen tidak terlalu dekat atau tumpang tindih dengan elemen lain. Selain itu, *padding*
+dapat memengaruhi ukuran total elemen, sebagai contoh apabila kita memiliki elemen dengan *padding* yang cukup besar, ukuran elemen
+tersebut akan lebih besar daripada kontennya.
+
+
+
+ >4. Jelaskan perbedaan antara *framework* CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+
+| Tailwind CSS                             | Bootstrap                                 |
+|-----------------------------------------|-------------------------------------------|
+| Membangun tampilan dengan menggabungkan kelas-kelas utilitas yang telah didefinisikan sebelumnya. | Menggunakan gaya dan komponen yang telah didefinisikan, yang memiliki tampilan yang sudah jadi dan dapat digunakan secara langsung. |
+| Memiliki file CSS yang lebih kecil sedikit dibandingkan Bootstrap dan hanya akan memuat kelas-kelas utilitas yang ada | Memiliki file CSS yang lebih besar dibandingkan dengan Tailwind CSS karena termasuk banyak komponen yang telah didefinisikan. |
+| Memiliki memberikan fleksibilitas dan adaptabilitas tinggi terhadap proyek. | Sering kali menghasilkan tampilan yang lebih konsisten di seluruh proyek karena menggunakan komponen yang telah didefinisikan. |
+| Memiliki pembelajaran yang lebih curam karena memerlukan pemahaman terhadap kelas-kelas utilitas yang tersedia dan bagaimana menggabungkannya untuk mencapai tampilan yang diinginkan. | Memiliki pembelajaran yang lebih cepat untuk pemula karena dapat mulai dengan komponen yang telah didefinisikan. |
+
+
+ >5. Jelaskan bagaimana cara kamu mengimplementasikan *checklist* di atas secara *step-by-step* (bukan hanya sekadar mengikuti tutorial).
+
+ Kustomisasi desain pada *template* HTML yang telah dibuat pada Tugas 4 dengan menggunakan CSS atau CSS *framework* (seperti Bootstrap, Tailwind, Bulma) dengan ketentuan sebagai berikut:
+ 
+ 1. Membuka berkas `base.html` pada folder `templates` dan tambahkan kode berikut supaya halaman web dapat menyesuaikan ukuran dan
+perilaku perangkat mobile.
+```text
+<head>
+    {% block meta %}
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% endblock meta %}
+</head>
+```
+2. Menambahkan Bootstrap CSS dan JS dengan kode berikut.
+```text
+<head>
+    {% block meta %}
+        ...
+    {% endblock meta %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+J4jsl5c9zdLKaUk5Ae5f5b1bw6AUn5f5v8FZJoMxm6f5cH1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</head>
+```
+
+- [x] Kustomisasi halaman *login*, *register*, dan tambah inventori semenarik mungkin.
+- Halaman *login*
+1. Membuka berkas `login.html` pada folder `templates` dan ubah kode tersebut menjadi sebagai berikut supaya *style* halaman *login*
+sesuai dengan apa yang saya mau.
+```text
+{% block meta %}
+    <title>Login</title>
+{% endblock meta %}
+
+{% block content %}
+
+<style>
+    /* Menambahkan CSS untuk mengatur latar background layar */
+    body {
+        background-color: rgb(210, 145, 255);
+        display: flex;
+        justify-content: center; /* Mengatur elemen .login agar berada di tengah horizontal */
+        align-items: center; /* Mengatur elemen .login agar berada di tengah vertikal */
+        height: 100vh; /* Mengisi tinggi halaman dengan viewport height (100%) */
+        margin: 0; /* Menghapus margin default body */
+    }
+
+    .login {
+        background-color: white; /* Mengatur latar belakang kotak login menjadi putih */
+        padding: 30px; /* Menambahkan jarak antara konten dengan tepi kotak login */
+        border-radius: 10px; /* Mengubah sudut kotak login menjadi bulat */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Menambahkan efek bayangan pada kotak login */
+    }
+
+    /* Menambahkan style pada teks dan tombol */
+    h1 {
+        color: rgb(210, 145, 255);
+    }
+
+    /* Styling input */
+    .form-control {
+        width: 100%; /* Mengisi lebar input */
+        padding: 10px; /* Menambahkan jarak di dalam input */
+        border: 1px solid #ccc; /* Menambahkan border input */
+        border-radius: 5px; /* Mengubah sudut input menjadi bulat */
+        margin-bottom: 10px; /* Menambahkan jarak antara input */
+    }
+
+    /* Styling tombol login */
+    .login_btn {
+        background-color: rgb(90, 15, 130); /* Mengubah warna backround tombol login */
+        color: white; /* Mengubah warna teks tombol login */
+        padding: 10px 20px; /* Menambahkan jarak di dalam tombol */
+        border: none; /* Menghapus border tombol */
+        border-radius: 5px; /* Mengubah sudut tombol menjadi bulat */
+        cursor: pointer; /* Mengubah kursor saat diarahkan ke tombol */
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 14px;
+    }
+
+    /* Styling pesan kesalahan */
+    ul {
+        color: red; /* Mengubah warna pesan kesalahan */
+    }
+
+    /* Styling tautan "Register Now" */
+    a {
+        color: rgb(210, 145, 255); /* Mengubah warna tautan "Register Now" */
+    }
+</style>
+```
+2. Menambahkan kode berikut ke dalam berkas `login.html`.
+```text
+
+<div class="login">
+    <h1>Login</h1>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>Username: </td>
+                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
+            </tr>
+                    
+            <tr>
+                <td>Password: </td>
+                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td style="text-align: center;"><input class="btn login_btn" type="submit" value="Login"></td>
+            </tr>
+        </table>
+    </form>
+
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}     
+        
+    Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a>
+</div>
+
+{% endblock content %}
+```
+- Halaman *register*
+1. Membuka berkas `register.html` pada folder `templates` dan ubah kode tersebut menjadi sebagai berikut supaya *style* halaman
+ *register* sesuai dengan apa yang saya mau.
+ ```text
+ {% block meta %}
+    <title>Register</title>
+{% endblock meta %}
+
+{% block content %}  
+
+<style>
+    /* Menambahkan CSS untuk mengatur background layar */
+    body {
+        background-color: rgb(210, 145, 255);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    /* Styling kotak register */
+    .login {
+        background-color: white; /* Mengatur background kotak register menjadi putih */
+        padding: 20px; /* Menambahkan jarak antara konten dengan tepi kotak register */
+        border-radius: 10px; /* Mengubah sudut kotak register menjadi bulat */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Menambahkan efek bayangan pada kotak register */
+    }
+
+    /* Styling judul */
+    h1 {
+        color: rgb(210, 145, 255); /* Mengubah warna teks judul */
+    }
+
+    /* Styling tombol Daftar */
+    input[type="submit"] {
+        background-color: rgb(90, 15, 130); /* Mengubah warna background tombol Daftar */
+        color: white; /* Mengubah warna teks tombol Daftar */
+        padding: 10px 20px; /* Menambahkan jarak di dalam tombol Daftar */
+        border: none; /* Menghapus border tombol */
+        border-radius: 5px; /* Mengubah sudut tombol menjadi bulat */
+        cursor: pointer; /* Mengubah kursor saat diarahkan ke tombol Daftar */
+        font-family: 'Times New Roman', Times, serif; /* Mengubah font tombol Daftar menjadi Times New Roman */
+        font-size: 16px; /* Mengubah ukuran font tombol Daftar */
+        margin-top: 10px;
+    }
+
+    /* Styling pesan kesalahan */
+    ul {
+        color: red; /* Mengubah warna pesan kesalahan */
+    }
+</style>
+ ```
+ 2. Menambahkan kode berikut ke dalam berkas `register.html`.
+ ```text
+ <div class="login">
+    <h1>Register</h1>  
+
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>{{ form.username.label_tag }}</td>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.password1.label_tag }}</td>
+                <td>{{ form.password1 }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.password2.label_tag }}</td>
+                <td>{{ form.password2 }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="text-align: center;"><input type="submit" name="submit" value="Daftar" /></td>
+            </tr>
+        </table>
+    </form>
+
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>  
+
+{% endblock content %}
+
+```
+
+
+- [x] Kustomisasi halaman daftar inventori menjadi lebih berwarna maupun menggunakan *approach* lain seperti menggunakan Card.
+1. Membuka berkas `main.html` pada folder `templates` dan ubah kode tersebut menjadi sebagai berikut supaya *style* daftar
+inventori saya yang menggunakan Card sesuai dengan yang saya mau.
+```text
+<style>
+...
+.card {
+        background-color: #f2f2f2; /* Mengatur warna background card */
+        color: #333; /* Mengubah warna teks card */
+        border-radius: 5px; /* Mengubah sudut card menjadi bulat */
+        padding: 10px; /* Menambahkan padding pada card */
+        margin: 10px; /* Menambahkan margin di antara card */
+        display: inline-block; /* Mengatur card agar berdampingan */
+        width: calc(33.33% - 30px); /* Mengatur lebar card agar 3 card per baris */
+        text-align: center; /* Mengatur teks di tengah card */
+    }
+    .card a {
+        color: rgb(90, 15, 130); /* Mengubah warna tautan di dalam card */
+        text-decoration: none; /* Menghapus garis bawah pada tautan */
+        font-weight: bold; /* Mengatur teks tautan menjadi tebal */
+    }
+...
+</style>
+```
+2. Menambahkan kode berikut pada berkas `main.html`.
+```text
+...
+<div>
+    {% for item in items %}
+    <div class="card">
+        <h3>{{ item.name }}</h3>
+        <p>Amount: {{ item.amount }}</p>
+        <p>Description: {{ item.description }}</p>
+        <a href="increment_amount/{{ item.id }}">| +</a>
+        <a href="decrement_amount/{{ item.id }}">| -</a>
+        <a href="{% url 'main:edit_item' item.pk %}">| Edit</a>
+        <a href="{% url 'main:delete_item' item.pk %}">| Delete |</a>
+    </div>
+    {% endfor %}
+</div>
+...
+```
