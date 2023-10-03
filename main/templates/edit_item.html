@@ -37,11 +37,11 @@
         margin-bottom: 10px; /* Menambahkan jarak antara input */
     }
 
-    /* Styling tombol Add Item */
+    /* Styling tombol Edit Item */
     input[type="submit"] {
-        background-color: rgb(90, 15, 130); /* Mengubah warna backround tombol Add Item */
-        color: white; /* Mengubah warna teks tombol Add Item */
-        padding: 10px 20px; /* Menambahkan jarak di dalam tombol Add Item */
+        background-color: rgb(90, 15, 130); /* Mengubah warna backround tombol Edit Item */
+        color: white; /* Mengubah warna teks tombol Edit Item */
+        padding: 10px 20px; /* Menambahkan jarak di dalam tombol Edit Item */
         border: none; /* Menghapus border tombol */
         border-radius: 5px; /* Mengubah sudut tombol menjadi bulat */
         cursor: pointer; /* Mengubah kursor saat diarahkan ke tombol */
@@ -52,7 +52,7 @@
 </style>
 
 <div class="login">
-    <h1>Add New Item</h1>
+    <h1>Edit Item</h1>
 
     <form method="POST">
         {% csrf_token %}
@@ -60,7 +60,7 @@
             {{ form.as_table }}
             <tr>
                 <td></td>
-                <td style="text-align: center;"><input class="btn login_btn" type="submit" value="Add Item"></td>
+                <td style="text-align: center;"><input class="btn login_btn" type="submit" value="Edit Item"></td>
             </tr>
         </table>
     </form>

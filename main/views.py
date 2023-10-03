@@ -109,12 +109,27 @@ def decrement_amount(request, id):
         item.save()
     return HttpResponseRedirect(reverse('main:show_main'))
 
+
+def edit_item(request, id):
+    # Get product berdasarkan ID
+    product = Item.objects.get(pk = id)
+
+    # Set product sebagai instance dari form
+    form = ItemForm(request.POST or None, instance=product)
+
+    if form.is_valid() and request.method == "POST":
+        # Simpan form dan kembali ke halaman awal
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "edit_item.html", context)
+
+
 def delete_item(request, id):
-    item = Item.objects.get(pk=id)
+    # Get data berdasarkan ID
+    item = Item.objects.get(pk = id)
+    # Hapus data
     item.delete()
+    # Kembali ke halaman awal
     return HttpResponseRedirect(reverse('main:show_main'))
-
-
-
-
-

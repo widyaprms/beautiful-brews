@@ -6,29 +6,82 @@
 
 {% block content %}  
 
-<div class = "login">
-    
+<style>
+    /* Menambahkan CSS untuk mengatur background layar */
+    body {
+        background-color: rgb(210, 145, 255);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    /* Styling kotak register */
+    .login {
+        background-color: white; /* Mengatur background kotak register menjadi putih */
+        padding: 20px; /* Menambahkan jarak antara konten dengan tepi kotak register */
+        border-radius: 10px; /* Mengubah sudut kotak register menjadi bulat */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Menambahkan efek bayangan pada kotak register */
+    }
+
+    /* Styling judul */
+    h1 {
+        color: rgb(210, 145, 255); /* Mengubah warna teks judul */
+    }
+
+    /* Styling tombol Daftar */
+    input[type="submit"] {
+        background-color: rgb(90, 15, 130); /* Mengubah warna background tombol Daftar */
+        color: white; /* Mengubah warna teks tombol Daftar */
+        padding: 10px 20px; /* Menambahkan jarak di dalam tombol Daftar */
+        border: none; /* Menghapus border tombol */
+        border-radius: 5px; /* Mengubah sudut tombol menjadi bulat */
+        cursor: pointer; /* Mengubah kursor saat diarahkan ke tombol Daftar */
+        font-family: 'Times New Roman', Times, serif; /* Mengubah font tombol Daftar menjadi Times New Roman */
+        font-size: 16px; /* Mengubah ukuran font tombol Daftar */
+        margin-top: 10px;
+    }
+
+    /* Styling pesan kesalahan */
+    ul {
+        color: red; /* Mengubah warna pesan kesalahan */
+    }
+</style>
+
+<div class="login">
     <h1>Register</h1>  
 
-        <form method="POST" >  
-            {% csrf_token %}  
-            <table>  
-                {{ form.as_table }}  
-                <tr>  
-                    <td></td>
-                    <td><input type="submit" name="submit" value="Daftar"/></td>  
-                </tr>  
-            </table>  
-        </form>
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>{{ form.username.label_tag }}</td>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.password1.label_tag }}</td>
+                <td>{{ form.password1 }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.password2.label_tag }}</td>
+                <td>{{ form.password2 }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="text-align: center;"><input type="submit" name="submit" value="Daftar" /></td>
+            </tr>
+        </table>
+    </form>
 
-    {% if messages %}  
-        <ul>   
-            {% for message in messages %}  
-                <li>{{ message }}</li>  
-                {% endfor %}  
-        </ul>   
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
     {% endif %}
-
 </div>  
 
 {% endblock content %}
+
