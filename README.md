@@ -869,7 +869,7 @@ perilaku perangkat mobile.
 - [x] Kustomisasi halaman *login*, *register*, dan tambah inventori semenarik mungkin.
 - Halaman *login*
 1. Membuka berkas `login.html` pada folder `templates` dan ubah kode tersebut menjadi sebagai berikut supaya *style* halaman *login*
-sesuai dengan apa yang saya mau.
+sesuai dengan yang saya mau.
 ```text
 {% block meta %}
     <title>Login</title>
@@ -932,7 +932,7 @@ sesuai dengan apa yang saya mau.
     }
 </style>
 ```
-2. Menambahkan kode berikut ke dalam berkas `login.html`.
+2. Menambahkan kode berikut ke dalam berkas `login.html` untuk membuat kotak *login*.
 ```text
 
 <div class="login">
@@ -973,7 +973,7 @@ sesuai dengan apa yang saya mau.
 ```
 - Halaman *register*
 1. Membuka berkas `register.html` pada folder `templates` dan ubah kode tersebut menjadi sebagai berikut supaya *style* halaman
- *register* sesuai dengan apa yang saya mau.
+ *register* sesuai dengan yang saya mau.
  ```text
  {% block meta %}
     <title>Register</title>
@@ -1024,7 +1024,7 @@ sesuai dengan apa yang saya mau.
     }
 </style>
  ```
- 2. Menambahkan kode berikut ke dalam berkas `register.html`.
+ 2. Menambahkan kode berikut ke dalam berkas `register.html` untuk membuat form *register*.
  ```text
  <div class="login">
     <h1>Register</h1>  
@@ -1089,7 +1089,7 @@ inventori saya yang menggunakan Card sesuai dengan yang saya mau.
 ...
 </style>
 ```
-2. Menambahkan kode berikut pada berkas `main.html`.
+2. Menambahkan kode berikut pada berkas `main.html` untuk menggunakan Card.
 ```text
 ...
 <div>

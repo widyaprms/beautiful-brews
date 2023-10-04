@@ -7,37 +7,36 @@
         background-color: rgb(210, 145, 255);  /* Mengatur warna background layar */
         color: white; /* Mengubah warna teks menjadi putih */
         padding: 20px; /* Menambahkan padding pada konten */
-        margin: 0;
+        margin: 0;  /* Menghapus margin default body */
     }
     h1, h5 {
         font-family: 'Times New Roman', Times, serif;
         color: white; /* Mengubah warna teks menjadi putih */
-        font-size: 22px;
+        font-size: 22px; /* Mengatur ukuran teks */
     }
     h6 {
         font-family: 'Times New Roman', Times, serif;
         color: black; /* Mengubah warna teks menjadi hitam */
-        font-size: 22px;
-        margin: 10px 0 0 0;
+        font-size: 22px; /* Mengatur ukuran teks */
+        margin: 10px 0 0 0; /* Menambahkan margin pada konten */
     }
     h4 {
         font-family: 'Times New Roman', Times, serif;
         color: black; /* Mengubah warna teks menjadi hitam */
-        font-size: 18px;
-        margin: 30px 0 0 0;
+        font-size: 18px; /* Mengatur ukuran teks */
+        margin: 30px 0 0 0; /* Menambahkan margin pada konten */
     }
-    h7, p {
+    p {
         font-family: 'Times New Roman', Times, serif;
         color: black; /* Mengubah warna teks menjadi hitam */
-        font-size: 15px;
-        /* margin: 10px 0 0 0; */
+        font-size: 15px; /* Mengatur ukuran teks */
     }
     table {
         font-family: 'Times New Roman', Times, serif;
         color: black; /* Mengubah warna teks pada tabel menjadi hitam */
     }
     .navbar {
-        background-color: rgb(90, 15, 130); /* Mengatur warna backgroundd navbar */
+        background-color: rgb(90, 15, 130); /* Mengatur warna background navbar */
         color: white; /* Mengubah warna teks navbar menjadi putih */
         padding: 10px 20px; /* Menambahkan padding atas dan bawah navbar */
         text-align: center; /* Mengatur teks navbar menjadi di tengah */
@@ -60,6 +59,20 @@
         text-decoration: none; /* Menghapus garis bawah pada tautan */
         font-weight: bold; /* Mengatur teks tautan menjadi tebal */
     }
+    
+
+    /* Style untuk card item terakhir */
+    .last-card {
+        background-color: #E75480;
+        color: white;
+    }
+
+    .last-card a {
+        color: #FFB6C1; /* Mengubah warna tautan di dalam card */
+        text-decoration: none; /* Menghapus garis bawah pada tautan */
+        font-weight: bold; /* Mengatur teks tautan menjadi tebal */
+    }
+
 
     /* Style untuk teks "Sesi terakhir login" */
     .last-login-text {
@@ -96,7 +109,7 @@
 
 <div>
     {% for item in items %}
-    <div class="card">
+    <div class="card {% if forloop.last %}last-card, last-card a{% endif %}">
         <h3>{{ item.name }}</h3>
         <p>Amount: {{ item.amount }}</p>
         <p>Description: {{ item.description }}</p>
