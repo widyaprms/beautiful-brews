@@ -1199,7 +1199,9 @@ Memasukkan *cards* data item yang sudah dibuat ke dalam htmlSTring.
              </div>`;
         })
     
-        document.getElementById("item_table").innerHTML = htmlString;    
+        document.getElementById("item_table").innerHTML = htmlString;  
+        const itemCountElement = document.querySelector(`#item-count`);
+        itemCountElement.textContent = items.length;  
         
     }
     refreshItems()
