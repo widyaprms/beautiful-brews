@@ -14,6 +14,8 @@ from django.contrib.auth.decorators import login_required
 import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponseNotFound
 
 # Create your views here.
 
@@ -21,11 +23,12 @@ from django.urls import reverse
 
 def show_main(request):
     items = Item.objects.filter(user=request.user)
-
+    
     context = {
         'name': request.user.username,
         'class': 'PBP E',
         'items': items,
+        'jumlah_item': items.count(),
         'last_login': request.COOKIES['last_login'],
     }
 
@@ -133,3 +136,24 @@ def delete_item(request, id):
     item.delete()
     # Kembali ke halaman awal
     return HttpResponseRedirect(reverse('main:show_main'))
+
+
+def get_item_json(request):
+    product_item = Item.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize('json', product_item))
+
+
+@csrf_exempt
+def add_item_ajax(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        amount = request.POST.get("amount")
+        description = request.POST.get("description")
+        user = request.user
+
+        new_item = Item(name=name, amount=amount, description=description, user=user)
+        new_item.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()

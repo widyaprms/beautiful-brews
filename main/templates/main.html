@@ -9,10 +9,20 @@
         padding: 20px; /* Menambahkan padding pada konten */
         margin: 0;  /* Menghapus margin default body */
     }
-    h1, h5 {
+    h1 {
         font-family: 'Times New Roman', Times, serif;
         color: white; /* Mengubah warna teks menjadi putih */
         font-size: 22px; /* Mengatur ukuran teks */
+    }
+    h5 {
+        font-family: 'Times New Roman', Times, serif;
+        color: black; /* Mengubah warna teks menjadi putih */
+        font-size: 22px; /* Mengatur ukuran teks */
+    }
+    .mb-3 {
+        font-family: 'Times New Roman', Times, serif;
+        color: black; /* Mengubah warna teks menjadi putih */
+        font-size: 18px; /* Mengatur ukuran teks */
     }
     h6 {
         font-family: 'Times New Roman', Times, serif;
@@ -73,7 +83,6 @@
         font-weight: bold; /* Mengatur teks tautan menjadi tebal */
     }
 
-
     /* Style untuk teks "Sesi terakhir login" */
     .last-login-text {
         position: fixed;
@@ -82,6 +91,8 @@
         color: black;
         font-size: 12px;
     }
+    
+
 
     
 </style>
@@ -105,25 +116,94 @@
 <h6>Class:</h6>
 <p>{{ class }}</p>
 
-<h4>Anda menyimpan {{ items.count }} item disini</h4>
 
-<div>
-    {% for item in items %}
-    <div class="card {% if forloop.last %}last-card, last-card a{% endif %}">
-        <h3>{{ item.name }}</h3>
-        <p>Amount: {{ item.amount }}</p>
-        <p>Description: {{ item.description }}</p>
-        <a href="increment_amount/{{ item.id }}">| +</a>
-        <a href="decrement_amount/{{ item.id }}">| -</a>
-        <a href="{% url 'main:edit_item' item.pk %}">| Edit</a>
-        <a href="{% url 'main:delete_item' item.pk %}">| Delete |</a>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product by AJAX</button>
+
+<div id="item_table"></div>
+
+<!--- add item by AJAX -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fs-5" id="exampleModalLabel">Add New Item</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form" onsubmit="return false;">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name" class="col-form-label">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name"></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="amount" class="col-form-label">Amount:</label>
+                        <input type="number" class="form-control" id="price" name="amount"></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="col-form-label">Description:</label>
+                        <textarea class="form-control" id="description" name="description"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Item</button>
+            </div>
+        </div>
     </div>
-    {% endfor %}
 </div>
+
 
 <div class="last-login-text">
     Sesi terakhir login: {{ last_login }}
 </div>
 <br />
+
+
+
+<script>
+    async function getItems() {
+        return fetch("{% url 'main:get_item_json' %}").then((res) => res.json())
+    }
+
+    async function refreshItems() {
+        document.getElementById("item_table").innerHTML = ""
+        const items = await getItems()
+        let htmlString = ""
+        items.forEach((item) => {
+            htmlString += `
+            <div class="card">
+                <div class="card-body">
+                    
+                         <h3>${ item.fields.name }</h3>
+                         <p>Amount: ${ item.fields.amount }</p>
+                         <p>Description: ${ item.fields.description }</p>
+                         
+                     </div>
+                 </div>
+             </div>`;
+        })
+    
+        document.getElementById("item_table").innerHTML = htmlString;    
+
+    }
+    refreshItems()
+
+
+    function addItem() {
+        fetch("{% url 'main:add_item_ajax' %}", {
+            method: "POST",
+            body: new FormData(document.querySelector('#form'))
+        }).then(refreshItems)
+
+        document.getElementById("form").reset()
+        return false
+    }
+    document.getElementById("button_add").onclick = addItem
+
+
+
+</script>
 
 {% endblock content %}
