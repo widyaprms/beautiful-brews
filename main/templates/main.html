@@ -116,7 +116,7 @@
 <h6>Class:</h6>
 <p>{{ class }}</p>
 
-
+<h4> Anda menyimpan <span id="item-count">{{ items.count }}</span> item disini</h4>
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product by AJAX</button>
 
 <div id="item_table"></div>
@@ -185,7 +185,9 @@
              </div>`;
         })
     
-        document.getElementById("item_table").innerHTML = htmlString;    
+        document.getElementById("item_table").innerHTML = htmlString;  
+        const itemCountElement = document.querySelector(`#item-count`);
+        itemCountElement.textContent = items.length;  
 
     }
     refreshItems()
