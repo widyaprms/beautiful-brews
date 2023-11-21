@@ -19,6 +19,7 @@ from django.http import HttpResponseNotFound
 
 # Create your views here.
 
+
 @login_required(login_url='/login')
 
 def show_main(request):
