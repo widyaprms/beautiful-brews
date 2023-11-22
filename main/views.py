@@ -140,6 +140,7 @@ def delete_item(request, id):
     return HttpResponseRedirect(reverse('main:show_main'))
 
 
+@csrf_exempt
 def get_item_json(request):
     product_item = Item.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize('json', product_item))
