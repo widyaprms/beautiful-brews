@@ -1,5 +1,6 @@
+import json
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from main.forms import ItemForm
 from django.urls import reverse
 from main.models import Item
@@ -170,7 +171,7 @@ def create_item_flutter(request):
         new_item = Item.objects.create(
             user = request.user,
             name = data["name"],
-            price = int(data["price"]),
+            amount = int(data["amount"]),
             description = data["description"]
         )
 
