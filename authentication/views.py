@@ -4,6 +4,10 @@ from django.contrib.auth import authenticate, login as auth_login
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import logout as auth_logout
+from django.contrib.auth.models import User
+
+
+from main.models import Item
 
 
 @csrf_exempt
@@ -51,3 +55,31 @@ def logout(request):
         "status": False,
         "message": "Logout gagal."
         }, status=401)
+
+
+@csrf_exempt
+def register(request):
+    
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+
+    if User.objects.filter(username=username).exists():
+        return JsonResponse({
+            "status": False,
+            "message": "Username sudah digunakan. Pilih username lain."
+        }, status=400)
+
+    # Buat user baru tanpa menggunakan email
+    user = User.objects.create_user(username=username, password=password)
+
+    return JsonResponse({
+        "username": user.username,
+        "status": True,
+        "message": "Registrasi berhasil!"
+    }, status=201)
+
+
+
+def get_item_json(request):
+    item = Item.objects.filter(user = user)
+    return HttpResponse(serializers.serialize('json', item))
